@@ -124,7 +124,7 @@ Para qualquer mudança de texto:
 | Chave PIX | `projetoatuarsemeandoamor` |
 | Números de impacto | `class="num"` |
 | Textos das ações | `<article class="card` |
-| Depoimentos | `<blockquote>` |
+| Telefone do Marcelo | `553899286112` |
 | Notícias | *(não é aqui — é no `noticias.json`)* |
 | Cores | `:root{` (no topo, dentro do `<style>`) |
 
@@ -241,8 +241,13 @@ Não faça essa migração agora. Faça quando o volume justificar.
       partir das ações listadas.
 - [ ] **Trocar os links das redes sociais.** No rodapé, os quatro ícones
       (FB, IG, YT, TT) apontam para `#contato`. Substitua pelos endereços reais.
-- [ ] **Revisar os depoimentos.** Confirmar se Jaqueline e Renato autorizam o
-      uso dos nomes.
+- [ ] **Confirmar o telefone.** O site usa `+55 (38) 9928-6112`. Celular
+      brasileiro costuma ter 9 digitos apos o DDD (ex: 99928-6112) e este tem 8.
+      Se o WhatsApp nao abrir, e isso — corrija as 3 ocorrencias de
+      `553899286112` no `index.html`.
+- [ ] **Autorizacao de imagem.** As fotos mostram voluntarios e pessoas
+      atendidas. Confirme se ha autorizacao de uso de imagem, principalmente das
+      pessoas atendidas.
 - [ ] **Benefício fiscal.** O texto de dedução no Imposto de Renda só se aplica
       a doações para entidade formalizada e qualificada. Confirme a situação
       jurídica do projeto antes de manter essa promessa no ar.
