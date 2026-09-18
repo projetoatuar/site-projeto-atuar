@@ -1,0 +1,21 @@
+{
+  "_comentario": "Cada bloco entre chaves e uma noticia. A mais recente aparece automaticamente em destaque. Campos: titulo e resumo sao obrigatorios; data no formato AAAA-MM-DD; categoria, imagem e link sao opcionais (deixe \"\" para nao usar).",
+  "noticias": [
+    {
+      "titulo": "EXEMPLO - substitua por uma acao real do projeto",
+      "data": "2026-09-16",
+      "categoria": "Direito ao Banho",
+      "resumo": "Escreva aqui de 2 a 3 linhas contando o que aconteceu: quantas pessoas foram atendidas, onde foi, o que foi entregue. Apague este item quando publicar a primeira noticia de verdade.",
+      "imagem": "",
+      "link": ""
+    },
+    {
+      "titulo": "EXEMPLO - segunda noticia",
+      "data": "2026-09-10",
+      "categoria": "Abordagem Noturna",
+      "resumo": "Este segundo item so existe para voce ver como fica o layout com mais de uma noticia. A mais recente vira destaque grande; as demais viram cards menores.",
+      "imagem": "",
+      "link": ""
+    }
+  ]
+}
