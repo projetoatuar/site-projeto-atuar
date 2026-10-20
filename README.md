@@ -1,20 +1,20 @@
 # Site — Projeto Atuar Semeando Amor
 
-Site institucional estático, arquivo único, sem dependências externas.
+Site institucional estático: um arquivo `index.html` e as fotos na pasta `img/`.
 
 ## Arquivos
 
 | Arquivo | O que é | Mexer? |
 |---|---|---|
-| `index.html` | O site inteiro (HTML + CSS + JS + imagens embutidas) | Sim |
+| `index.html` | O site (textos, layout, cores) | Sim |
+| `img/` | Todas as fotos do site e das notícias | Sim |
 | `_headers` | Cabeçalhos de segurança lidos pela Cloudflare | Raramente |
 | `noticias.json` | As notícias do site | **Sim, toda semana** |
 | `robots.txt` | Instruções para o Google | Ao ter domínio |
 | `README.md` | Este arquivo | — |
 
-O site é **autocontido**: as imagens estão embutidas dentro do HTML em base64.
-Não existe pasta de imagens. Abrir `index.html` com dois cliques já mostra o site
-funcionando, mesmo sem internet.
+As fotos ficam na pasta `img/`. O `index.html` só aponta para elas — por isso a
+pasta precisa estar sempre no repositório, ao lado do `index.html`.
 
 ---
 
@@ -191,10 +191,8 @@ para publicar uma — só editar esse arquivo.
 
 ### Usando fotos
 
-1. No repositório, crie a pasta `img` (**Add file → Create new file**, digite
-   `img/.gitkeep` e salve).
-2. Entre na pasta e use **Add file → Upload files** para subir as fotos.
-3. No `noticias.json`, referencie assim: `"imagem": "img/mutirao-setembro.jpg"`
+1. Entre na pasta `img` no GitHub e use **Add file → Upload files** para subir a foto.
+2. No `noticias.json`, referencie assim: `"imagem": "img/mutirao-outubro.jpg"`
 
 Redimensione as fotos para no máximo 1200px de largura antes de subir — foto de
 celular tem 4000px e deixa o site lento.
@@ -203,7 +201,8 @@ celular tem 4000px e deixa o site lento.
 
 Ao abrir `index.html` com dois cliques, as notícias **não aparecem** — o
 navegador bloqueia a leitura do `.json` em arquivo local. Isso é normal e não é
-erro. No site publicado funciona.
+erro. No site publicado funciona. As fotos aparecem normalmente, desde que a
+pasta `img` esteja ao lado do `index.html`.
 
 Para testar localmente, abra o terminal na pasta do projeto e rode:
 
@@ -214,6 +213,57 @@ python -m http.server 8000
 Depois acesse `http://localhost:8000` no navegador.
 
 ---
+
+---
+
+## PARTE 5 — Trocar uma foto do site
+
+Cada foto tem um lugar fixo no site. Para trocar, basta subir uma foto nova
+**com exatamente o mesmo nome** dentro da pasta `img/`. Não precisa mexer no
+`index.html`.
+
+| Arquivo em `img/` | Onde aparece |
+|---|---|
+| `capa-equipe.jpg` | Foto grande do topo do site |
+| `fundo-topo.jpg` | Imagem clarinha de fundo do topo |
+| `logo.png` | Logo no menu e no rodapé |
+| `favicon.png` | Iconezinho na aba do navegador |
+| `quem-somos-entrega-roupas.jpg` | Seção "Quem somos" |
+| `acao-direito-ao-banho.jpg` | Card 01 — Direito ao Banho |
+| `acao-alimentacao.jpg` | Card 02 — Alimentação e Nutrição |
+| `acao-abordagem-noturna.jpg` | Card 03 — Abordagem Noturna |
+| `comunidade-placa.jpg` | Card 04 — Comunidade Terapêutica |
+| `comunidade-terreno.jpg` | Seção Comunidade — foto grande |
+| `comunidade-limpeza.jpg` | Seção Comunidade — mutirão de limpeza |
+| `comunidade-pintura.jpg` | Seção Comunidade — pintura |
+| `galeria-atendimento.jpg` | Galeria — 1ª foto |
+| `galeria-fila-banho.jpg` | Galeria — 2ª foto |
+| `galeria-lavatorio.jpg` | Galeria — 3ª foto |
+| `galeria-cafe-da-manha.jpg` | Galeria — 4ª foto |
+| `galeria-corte-de-cabelo.jpg` | Galeria — 5ª foto |
+| `galeria-unidade-banho.jpg` | Galeria — 6ª foto |
+| `galeria-lanches.jpg` | Galeria — 7ª foto |
+| `galeria-parceiros.jpg` | Galeria — 8ª foto |
+| `campanha-reforma-*.jpg` | Notícia da campanha da reforma |
+
+### Como trocar
+
+1. Renomeie a foto nova no computador com o nome da tabela (minúsculo, com `.jpg`).
+2. No GitHub, clique na pasta `img` para entrar nela.
+3. **Add file → Upload files**, arraste a foto e clique em **Commit changes**.
+4. Em ~1 minuto está no ar. Se aparecer a foto antiga, use **Ctrl + Shift + R**.
+
+### Cuidados
+
+- **Formato:** prefira foto deitada (horizontal). Os cards cortam as bordas para
+  caber, então o assunto deve estar no centro da foto.
+- **Tamanho:** reduza para no máximo 1200px de largura antes de subir. Foto de
+  celular original tem 3 a 5 MB e deixa o site lento no 4G. O próprio WhatsApp já
+  reduz — uma foto salva do WhatsApp costuma servir sem ajuste.
+- **Pessoas atendidas:** borre ou cubra o rosto antes de subir. Nenhuma foto de
+  pessoa em situação de rua com o rosto visível deve ir para o site.
+- **Nome errado = foto quebrada.** `Capa-Equipe.JPG` não é o mesmo que
+  `capa-equipe.jpg`. Se a foto sumir do site, confira o nome primeiro.
 
 ## Quando migrar para algo maior
 
