@@ -43,7 +43,7 @@
     line-height:1.68;font-size:17px;overflow-x:hidden;
   }
 
-  img{max-width:100%;display:block;}
+  img{max-width:100%;height:auto;display:block;}
   a{color:inherit;text-decoration:none;}
 
   .wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px;}
@@ -259,13 +259,13 @@
     border-block-start:1px solid var(--borda);padding-block-start:24px;
     display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-size:13px;
   }
-  .sociais{display:flex;gap:10px;}
-  .sociais a{
+  .sociais{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--tinta-suave);transition:color .2s;}
+  .sociais .ig-ico{
     width:38px;height:38px;border-radius:50%;background:var(--branco);
-    border:1px solid var(--borda);display:grid;place-items:center;
-    font-size:11.5px;font-weight:800;color:var(--tinta-suave);transition:.2s;
+    border:1px solid var(--borda);display:grid;place-items:center;transition:.2s;
   }
-  .sociais a:hover{background:var(--verde);color:#fff;border-color:var(--verde);transform:translateY(-3px);}
+  .sociais:hover{color:var(--verde-escuro);}
+  .sociais:hover .ig-ico{background:var(--verde);color:#fff;border-color:var(--verde);transform:translateY(-3px);}
 
 
 
@@ -422,13 +422,21 @@
   .btn-copiar:hover{background:var(--verde-escuro);transform:translateY(-1px);}
   .btn-copiar.ok{background:var(--tinta);}
 
+  /* comunidade: chamada e link do card */
+  .ct-acoes{display:flex;flex-wrap:wrap;gap:12px;margin-block-start:24px;}
+  .card-rodape{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-block-start:auto;}
+  .card-rodape .tag{margin:0;}
+  .ver-mais{font-size:14px;font-weight:800;color:var(--verde-escuro);}
+  .ver-mais:hover{text-decoration:underline;}
+  @media (prefers-color-scheme:dark){ .ver-mais{color:var(--verde-medio);} }
+
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
   .reveal.on{opacity:1;transform:none;}
 
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1;transform:none;transition:none;}
-    .btn:hover,.card:hover,.pilar:hover,.sociais a:hover{transform:none;}
+    .btn:hover,.card:hover,.pilar:hover,.sociais:hover .ig-ico{transform:none;}
   }
 
   @media (prefers-color-scheme:dark){
@@ -517,7 +525,8 @@
       "email": "projetoatuarsemeandoamor@gmail.com",
       "telephone": "+55 38 9928-6112",
       "slogan": "Juntos, construímos novos caminhos",
-      "taxID": "36.195.412/0001-71"
+      "taxID": "36.195.412/0001-71",
+      "sameAs": ["https://www.instagram.com/atuardireitoaobanho/"]
     },
     {
       "@type": "WebSite",
@@ -537,16 +546,15 @@
 <header class="nav" id="topo">
   <div class="wrap nav-inner">
     <a class="brand" href="#topo">
-      <img src="img/logo.png" alt="Logo do Projeto Atuar">
+      <img src="img/logo.png" alt="Logo do Projeto Atuar" width="150" height="150">
       <span class="brand-txt"><strong>Projeto Atuar</strong><span>Semeando Amor</span></span>
     </a>
     <nav class="nav-links" id="menu">
       <a href="#sobre">Quem somos</a>
       <a href="#acoes">Nossas ações</a>
       <a href="#comunidade">Comunidade</a>
+      <a href="#galeria">Galeria</a>
       <a href="#noticias">Notícias</a>
-      <a href="#impacto">Impacto</a>
-      <a href="#participe">Participe</a>
       <a href="#contato">Contato</a>
     </nav>
     <a class="btn btn-primary nav-cta" href="#participe">Doar via PIX</a>
@@ -575,7 +583,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-foto"><img src="img/capa-equipe.jpg" alt="Equipe do Projeto Atuar e parceiros do Grupo Insanos em frente à unidade do Direito ao Banho"></div>
+        <div class="hero-foto"><img src="img/capa-equipe.jpg" fetchpriority="high" alt="Equipe do Projeto Atuar e parceiros do Grupo Insanos em frente à unidade do Direito ao Banho" width="820" height="656"></div>
         <div class="hero-badge">
           <span class="valor">R$10</span>
           <span class="txt">já garantem banho, refeição e acolhimento</span>
@@ -604,7 +612,7 @@
         <h2>Dignidade no Dia do Banho</h2>
         <p>Cuidar do próximo é a essência do Projeto Atuar Semeando Amor. Mais do que higiene, entregamos um momento de carinho que devolve a esperança a quem vive nas ruas, criando um ambiente de afeto onde cada pessoa se sente vista, respeitada e motivada a recomeçar.</p>
         <p>Preparamos com carinho banhos quentes, roupas limpas e itens de higiene para todos os atendidos. Nossa meta é abraçar os cidadãos com sensibilidade, plantando sementes de confiança que abrem caminhos para uma vida nova — com muito mais saúde, proteção social e bem-estar para o coração.</p>
-        <div class="sobre-foto"><img src="img/quem-somos-entrega-roupas.jpg" alt="Voluntária do Projeto Atuar entregando roupas a um atendido" loading="lazy"></div>
+        <div class="sobre-foto"><img src="img/quem-somos-entrega-roupas.jpg" alt="Voluntária do Projeto Atuar entregando roupas a um atendido" loading="lazy" width="620" height="470"></div>
         <p class="sobre-legenda">Entrega de roupas durante uma ação do projeto em Paracatu.</p>
       </div>
       <div class="pilares reveal">
@@ -627,7 +635,7 @@
     </div>
     <div class="cards">
       <article class="card reveal">
-        <div class="capa-acao"><img src="img/acao-direito-ao-banho.jpg" alt="Estrutura móvel do Direito ao Banho com a equipe de voluntários" loading="lazy"></div>
+        <div class="capa-acao"><img src="img/acao-direito-ao-banho.jpg" alt="Estrutura móvel do Direito ao Banho com a equipe de voluntários" loading="lazy" width="600" height="370"></div>
         <div class="conteudo">
           <div class="num">01</div>
           <h3>Direito ao Banho</h3>
@@ -636,7 +644,7 @@
         </div>
       </article>
       <article class="card reveal">
-        <div class="capa-acao"><img src="img/acao-alimentacao.jpg" alt="Voluntária servindo refeições em marmitas durante ação nas ruas" loading="lazy"></div>
+        <div class="capa-acao"><img src="img/acao-alimentacao.jpg" alt="Voluntária servindo refeições em marmitas durante ação nas ruas" loading="lazy" width="600" height="370"></div>
         <div class="conteudo">
           <div class="num">02</div>
           <h3>Alimentação e Nutrição</h3>
@@ -645,7 +653,7 @@
         </div>
       </article>
       <article class="card reveal">
-        <div class="capa-acao"><img src="img/acao-abordagem-noturna.jpg" alt="Equipe do projeto durante abordagem noturna nas ruas de Paracatu" loading="lazy"></div>
+        <div class="capa-acao"><img src="img/acao-abordagem-noturna.jpg" alt="Equipe do projeto durante abordagem noturna nas ruas de Paracatu" loading="lazy" width="600" height="370"></div>
         <div class="conteudo">
           <div class="num">03</div>
           <h3>Abordagem Noturna</h3>
@@ -656,12 +664,12 @@
     </div>
     <div class="cards" style="margin-block-start:24px;grid-template-columns:1fr;">
       <article class="card destaque reveal">
-        <div class="capa-acao"><img src="img/comunidade-placa.jpg" alt="Placa da Comunidade Terapêutica Atuar instalada no terreno" loading="lazy"></div>
+        <div class="capa-acao"><img src="img/comunidade-placa.jpg" alt="Placa da Comunidade Terapêutica Atuar instalada no terreno" loading="lazy" width="620" height="385"></div>
         <div class="conteudo">
           <div class="num">04</div>
           <h3>Comunidade Terapêutica</h3>
           <p>Um espaço dedicado ao acolhimento e à reinserção social, focado na recuperação plena de cidadãos vulneráveis. O terreno já tem placa instalada e as primeiras obras em andamento.</p>
-          <span class="tag breve">Em obras</span>
+          <div class="card-rodape"><span class="tag breve">Em obras</span><a class="ver-mais" href="#comunidade">Acompanhar a obra &rarr;</a></div>
         </div>
       </article>
     </div>
@@ -669,33 +677,37 @@
 </section>
 
 
-<section class="sec-areia" id="comunidade">
+<section id="comunidade">
   <div class="wrap">
     <div class="ct-banner">
       <div class="ct-foto reveal">
-        <img src="img/comunidade-terreno.jpg" alt="Área do terreno da futura Comunidade Terapêutica Atuar" loading="lazy">
+        <img src="img/comunidade-terreno.jpg" alt="Área do terreno da futura Comunidade Terapêutica Atuar" loading="lazy" width="480" height="355">
       </div>
       <div class="reveal">
         <span class="eyebrow">Saindo do papel</span>
         <h2>Comunidade Terapêutica Atuar</h2>
         <p class="lead">O projeto mais ambicioso do Atuar: um espaço próprio para acolher, tratar e reinserir socialmente quem precisa recomeçar longe das ruas.</p>
         <p style="color:var(--tinta-suave);">O terreno já tem a placa instalada e as primeiras frentes de trabalho começaram — limpeza da área, recuperação das estruturas e pintura. Cada doação acelera essa construção.</p>
+        <div class="ct-acoes">
+          <a class="btn btn-primary" href="#participe">Quero ajudar na obra</a>
+          <a class="btn btn-outline" href="https://wa.me/553899286112" target="_blank" rel="noopener">Doar materiais</a>
+        </div>
       </div>
     </div>
     <div class="obras">
       <figure class="obra reveal" style="margin:0;">
-        <img src="img/comunidade-limpeza.jpg" alt="Voluntário durante a limpeza do terreno" loading="lazy">
+        <img src="img/comunidade-limpeza.jpg" alt="Voluntário durante a limpeza do terreno" loading="lazy" width="480" height="355">
         <figcaption class="cap">Mutirão de limpeza e preparação do espaço.</figcaption>
       </figure>
       <figure class="obra reveal" style="margin:0;">
-        <img src="img/comunidade-pintura.jpg" alt="Voluntário pintando o muro do terreno" loading="lazy">
+        <img src="img/comunidade-pintura.jpg" alt="Voluntário pintando o muro do terreno" loading="lazy" width="480" height="355">
         <figcaption class="cap">Pintura e recuperação das áreas externas.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section id="galeria">
+<section class="sec-areia" id="galeria">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Nas ruas</span>
@@ -704,35 +716,35 @@
     </div>
     <div class="galeria">
       <figure class="reveal">
-        <img src="img/galeria-atendimento.jpg" alt="Voluntárias do Atuar conversando com uma pessoa atendida em uma mesa na praça" loading="lazy">
+        <img src="img/galeria-atendimento.jpg" alt="Voluntárias do Atuar conversando com uma pessoa atendida em uma mesa na praça" loading="lazy" width="460" height="340">
         <figcaption>Escuta e atendimento social</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-fila-banho.jpg" alt="Pessoas aguardando a vez na unidade móvel do Direito ao Banho" loading="lazy">
+        <img src="img/galeria-fila-banho.jpg" alt="Pessoas aguardando a vez na unidade móvel do Direito ao Banho" loading="lazy" width="460" height="340">
         <figcaption>Fila para o Direito ao Banho</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-lavatorio.jpg" alt="Pessoa atendida usando o lavatório da unidade móvel do projeto" loading="lazy">
+        <img src="img/galeria-lavatorio.jpg" alt="Pessoa atendida usando o lavatório da unidade móvel do projeto" loading="lazy" width="460" height="340">
         <figcaption>Lavatório da unidade móvel</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-cafe-da-manha.jpg" alt="Voluntário do Atuar servindo café da manhã em mesa montada na rua" loading="lazy">
+        <img src="img/galeria-cafe-da-manha.jpg" alt="Voluntário do Atuar servindo café da manhã em mesa montada na rua" loading="lazy" width="460" height="340">
         <figcaption>Café da manhã servido na rua</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-corte-de-cabelo.jpg" alt="Voluntário cortando o cabelo de um atendido" loading="lazy">
+        <img src="img/galeria-corte-de-cabelo.jpg" alt="Voluntário cortando o cabelo de um atendido" loading="lazy" width="460" height="340">
         <figcaption>Corte de cabelo e cuidado pessoal</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-unidade-banho.jpg" alt="Atendido saindo da unidade móvel do Direito ao Banho" loading="lazy">
+        <img src="img/galeria-unidade-banho.jpg" alt="Atendido saindo da unidade móvel do Direito ao Banho" loading="lazy" width="460" height="340">
         <figcaption>Unidade móvel do Direito ao Banho</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-lanches.jpg" alt="Entrega de lanches durante ação na rua" loading="lazy">
+        <img src="img/galeria-lanches.jpg" alt="Entrega de lanches durante ação na rua" loading="lazy" width="460" height="340">
         <figcaption>Entrega de lanches e bebidas</figcaption>
       </figure>
       <figure class="reveal">
-        <img src="img/galeria-parceiros.jpg" alt="Voluntários e parceiros servindo alimentos" loading="lazy">
+        <img src="img/galeria-parceiros.jpg" alt="Voluntários e parceiros servindo alimentos" loading="lazy" width="460" height="340">
         <figcaption>Parceiros somando forças</figcaption>
       </figure>
     </div>
@@ -775,10 +787,11 @@
         <button class="btn-copiar" type="button" data-chave="projetoatuarsemeandoamor@gmail.com">Copiar chave</button>
       </div>
       <div class="contato-card reveal">
-        <div class="ico">&#9679;</div>
-        <h3>Onde atuamos</h3>
-        <div class="papel">Base do projeto</div>
-        <div class="dado">Paracatu — Minas Gerais</div>
+        <div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></div>
+        <h3>Instagram</h3>
+        <div class="papel">Novidades e bastidores das ações</div>
+        <div class="dado"><a href="https://www.instagram.com/atuardireitoaobanho/" target="_blank" rel="noopener">@atuardireitoaobanho</a></div>
+        <a class="btn-zap" href="https://www.instagram.com/atuardireitoaobanho/" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
     </div>
   </div>
@@ -817,7 +830,7 @@
     <div class="foot-grid">
       <div>
         <div class="brand">
-          <img src="img/logo.png" alt="Logo do Projeto Atuar">
+          <img src="img/logo.png" alt="Logo do Projeto Atuar" width="150" height="150">
           <span class="brand-txt"><strong>Projeto Atuar</strong><span>Semeando Amor</span></span>
         </div>
         <p>Assistência social, acolhimento e dignidade para pessoas em situação de rua em Paracatu, Minas Gerais.</p>
@@ -828,9 +841,10 @@
           <li><a href="#sobre">Quem somos</a></li>
           <li><a href="#acoes">Nossas ações</a></li>
           <li><a href="#comunidade">Comunidade Terapêutica</a></li>
+          <li><a href="#galeria">O projeto em ação</a></li>
           <li><a href="#noticias">Notícias</a></li>
-          <li><a href="#impacto">Impacto social</a></li>
-          <li><a href="#participe">Participe</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#participe">Como doar</a></li>
         </ul>
       </div>
       <div>
@@ -838,18 +852,16 @@
         <ul>
           <li><a href="https://wa.me/553899286112" target="_blank" rel="noopener">WhatsApp: (38) 9928-6112</a></li>
           <li><a href="mailto:projetoatuarsemeandoamor@gmail.com">projetoatuarsemeandoamor@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/atuardireitoaobanho/" target="_blank" rel="noopener">Instagram: @atuardireitoaobanho</a></li>
           <li><span>Paracatu — Minas Gerais</span></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Projeto Atuar Semeando Amor · CNPJ 36.195.412/0001-71</span>
-      <div class="sociais">
-        <a href="#contato" aria-label="Facebook">FB</a>
-        <a href="#contato" aria-label="Instagram">IG</a>
-        <a href="#contato" aria-label="YouTube">YT</a>
-        <a href="#contato" aria-label="TikTok">TT</a>
-      </div>
+      <a class="sociais" href="https://www.instagram.com/atuardireitoaobanho/" target="_blank" rel="noopener" aria-label="Instagram do Projeto Atuar (@atuardireitoaobanho)">
+        <span class="ig-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span><span>@atuardireitoaobanho</span>
+      </a>
     </div>
   </div>
 </footer>
